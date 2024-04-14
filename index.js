@@ -1,5 +1,5 @@
 import * as AWS from "@aws-sdk/client-bedrock-runtime";
-const client = new AWS.BedrockRuntime({ region: "REGION" });
+const client = new AWS.BedrockRuntime({ region: "us-west-2" });
 
 // async/await.
 try {

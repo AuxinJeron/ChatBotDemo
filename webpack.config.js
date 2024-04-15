@@ -7,7 +7,9 @@ module.exports = {
   // Specify the output file containing our bundled code.
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'EmmaChatBot',
+    libraryTarget: 'var'
   },
    // Enable WebPack to use the 'path' package.
    resolve:{

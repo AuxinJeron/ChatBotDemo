@@ -1,3 +1,3 @@
-import * as AWS from "@aws-sdk/client-bedrock-runtime";
+import {BedrockRuntimeClient, InvokeModelCommand} from "@aws-sdk/client-bedrock-runtime";
 
-module.exports = AWS
+export {BedrockRuntimeClient, InvokeModelCommand}

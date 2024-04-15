@@ -16,7 +16,7 @@
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/BedrockRuntime.js\");\n\nconst client = new _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__.BedrockRuntime({ region: \"us-west-2\" });\n\n// async/await.\ntry {\n  const data = await client.invokeModel(params);\n  // process data.\n} catch (error) {\n  // error handling.\n}\n\n// Promises.\nclient\n  .invokeModel(params)\n  .then((data) => {\n    // process data.\n  })\n  .catch((error) => {\n    // error handling.\n  });\n\n// callbacks.\nclient.invokeModel(params, (err, data) => {\n  // process err and data.\n});\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://aws-webpack/./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/index.js\");\n/* module decorator */ module = __webpack_require__.hmd(module);\n\n\nmodule.exports = _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__\n\n//# sourceURL=webpack://aws-webpack/./index.js?");
 
 /***/ }),
 
@@ -416,6 +416,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/index.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/index.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   $Command: () => (/* reexport safe */ _InvokeModelCommand__WEBPACK_IMPORTED_MODULE_0__.$Command),\n/* harmony export */   InvokeModelCommand: () => (/* reexport safe */ _InvokeModelCommand__WEBPACK_IMPORTED_MODULE_0__.InvokeModelCommand),\n/* harmony export */   InvokeModelWithResponseStreamCommand: () => (/* reexport safe */ _InvokeModelWithResponseStreamCommand__WEBPACK_IMPORTED_MODULE_1__.InvokeModelWithResponseStreamCommand)\n/* harmony export */ });\n/* harmony import */ var _InvokeModelCommand__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InvokeModelCommand */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/InvokeModelCommand.js\");\n/* harmony import */ var _InvokeModelWithResponseStreamCommand__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InvokeModelWithResponseStreamCommand */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/InvokeModelWithResponseStreamCommand.js\");\n\n\n\n\n//# sourceURL=webpack://aws-webpack/./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/endpoint/EndpointParameters.js":
 /*!*********************************************************************************************!*\
   !*** ./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/endpoint/EndpointParameters.js ***!
@@ -449,6 +460,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/index.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/index.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   $Command: () => (/* reexport safe */ _commands__WEBPACK_IMPORTED_MODULE_2__.$Command),\n/* harmony export */   AccessDeniedException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.AccessDeniedException),\n/* harmony export */   BedrockRuntime: () => (/* reexport safe */ _BedrockRuntime__WEBPACK_IMPORTED_MODULE_1__.BedrockRuntime),\n/* harmony export */   BedrockRuntimeClient: () => (/* reexport safe */ _BedrockRuntimeClient__WEBPACK_IMPORTED_MODULE_0__.BedrockRuntimeClient),\n/* harmony export */   BedrockRuntimeServiceException: () => (/* reexport safe */ _models_BedrockRuntimeServiceException__WEBPACK_IMPORTED_MODULE_4__.BedrockRuntimeServiceException),\n/* harmony export */   InternalServerException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.InternalServerException),\n/* harmony export */   InvokeModelCommand: () => (/* reexport safe */ _commands__WEBPACK_IMPORTED_MODULE_2__.InvokeModelCommand),\n/* harmony export */   InvokeModelRequestFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.InvokeModelRequestFilterSensitiveLog),\n/* harmony export */   InvokeModelResponseFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.InvokeModelResponseFilterSensitiveLog),\n/* harmony export */   InvokeModelWithResponseStreamCommand: () => (/* reexport safe */ _commands__WEBPACK_IMPORTED_MODULE_2__.InvokeModelWithResponseStreamCommand),\n/* harmony export */   InvokeModelWithResponseStreamRequestFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.InvokeModelWithResponseStreamRequestFilterSensitiveLog),\n/* harmony export */   InvokeModelWithResponseStreamResponseFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.InvokeModelWithResponseStreamResponseFilterSensitiveLog),\n/* harmony export */   ModelErrorException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ModelErrorException),\n/* harmony export */   ModelNotReadyException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ModelNotReadyException),\n/* harmony export */   ModelStreamErrorException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ModelStreamErrorException),\n/* harmony export */   ModelTimeoutException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ModelTimeoutException),\n/* harmony export */   PayloadPartFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.PayloadPartFilterSensitiveLog),\n/* harmony export */   ResourceNotFoundException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ResourceNotFoundException),\n/* harmony export */   ResponseStream: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ResponseStream),\n/* harmony export */   ResponseStreamFilterSensitiveLog: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ResponseStreamFilterSensitiveLog),\n/* harmony export */   ServiceQuotaExceededException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ServiceQuotaExceededException),\n/* harmony export */   ThrottlingException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ThrottlingException),\n/* harmony export */   ValidationException: () => (/* reexport safe */ _models__WEBPACK_IMPORTED_MODULE_3__.ValidationException),\n/* harmony export */   __Client: () => (/* reexport safe */ _BedrockRuntimeClient__WEBPACK_IMPORTED_MODULE_0__.__Client)\n/* harmony export */ });\n/* harmony import */ var _BedrockRuntimeClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BedrockRuntimeClient */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/BedrockRuntimeClient.js\");\n/* harmony import */ var _BedrockRuntime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BedrockRuntime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/BedrockRuntime.js\");\n/* harmony import */ var _commands__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./commands */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/index.js\");\n/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/index.js\");\n/* harmony import */ var _models_BedrockRuntimeServiceException__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./models/BedrockRuntimeServiceException */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/BedrockRuntimeServiceException.js\");\n\n\n\n\n\n\n\n//# sourceURL=webpack://aws-webpack/./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/BedrockRuntimeServiceException.js":
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/BedrockRuntimeServiceException.js ***!
@@ -457,6 +479,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   BedrockRuntimeServiceException: () => (/* binding */ BedrockRuntimeServiceException),\n/* harmony export */   __ServiceException: () => (/* reexport safe */ _smithy_smithy_client__WEBPACK_IMPORTED_MODULE_0__.ServiceException)\n/* harmony export */ });\n/* harmony import */ var _smithy_smithy_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @smithy/smithy-client */ \"./node_modules/@smithy/smithy-client/dist-es/index.js\");\n\n\nclass BedrockRuntimeServiceException extends _smithy_smithy_client__WEBPACK_IMPORTED_MODULE_0__.ServiceException {\n    constructor(options) {\n        super(options);\n        Object.setPrototypeOf(this, BedrockRuntimeServiceException.prototype);\n    }\n}\n\n\n//# sourceURL=webpack://aws-webpack/./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/BedrockRuntimeServiceException.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/index.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/index.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   AccessDeniedException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.AccessDeniedException),\n/* harmony export */   InternalServerException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.InternalServerException),\n/* harmony export */   InvokeModelRequestFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.InvokeModelRequestFilterSensitiveLog),\n/* harmony export */   InvokeModelResponseFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.InvokeModelResponseFilterSensitiveLog),\n/* harmony export */   InvokeModelWithResponseStreamRequestFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.InvokeModelWithResponseStreamRequestFilterSensitiveLog),\n/* harmony export */   InvokeModelWithResponseStreamResponseFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.InvokeModelWithResponseStreamResponseFilterSensitiveLog),\n/* harmony export */   ModelErrorException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ModelErrorException),\n/* harmony export */   ModelNotReadyException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ModelNotReadyException),\n/* harmony export */   ModelStreamErrorException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ModelStreamErrorException),\n/* harmony export */   ModelTimeoutException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ModelTimeoutException),\n/* harmony export */   PayloadPartFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.PayloadPartFilterSensitiveLog),\n/* harmony export */   ResourceNotFoundException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ResourceNotFoundException),\n/* harmony export */   ResponseStream: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ResponseStream),\n/* harmony export */   ResponseStreamFilterSensitiveLog: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ResponseStreamFilterSensitiveLog),\n/* harmony export */   ServiceQuotaExceededException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ServiceQuotaExceededException),\n/* harmony export */   ThrottlingException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ThrottlingException),\n/* harmony export */   ValidationException: () => (/* reexport safe */ _models_0__WEBPACK_IMPORTED_MODULE_0__.ValidationException)\n/* harmony export */ });\n/* harmony import */ var _models_0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models_0 */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/models_0.js\");\n\n\n\n//# sourceURL=webpack://aws-webpack/./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/models/index.js?");
 
 /***/ }),
 
@@ -4367,88 +4400,22 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/async module */
-/******/ 	(() => {
-/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 		var resolveQueue = (queue) => {
-/******/ 			if(queue && queue.d < 1) {
-/******/ 				queue.d = 1;
-/******/ 				queue.forEach((fn) => (fn.r--));
-/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 			}
-/******/ 		}
-/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 			if(dep !== null && typeof dep === "object") {
-/******/ 				if(dep[webpackQueues]) return dep;
-/******/ 				if(dep.then) {
-/******/ 					var queue = [];
-/******/ 					queue.d = 0;
-/******/ 					dep.then((r) => {
-/******/ 						obj[webpackExports] = r;
-/******/ 						resolveQueue(queue);
-/******/ 					}, (e) => {
-/******/ 						obj[webpackError] = e;
-/******/ 						resolveQueue(queue);
-/******/ 					});
-/******/ 					var obj = {};
-/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 					return obj;
-/******/ 				}
-/******/ 			}
-/******/ 			var ret = {};
-/******/ 			ret[webpackQueues] = x => {};
-/******/ 			ret[webpackExports] = dep;
-/******/ 			return ret;
-/******/ 		}));
-/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
-/******/ 			var queue;
-/******/ 			hasAwait && ((queue = []).d = -1);
-/******/ 			var depQueues = new Set();
-/******/ 			var exports = module.exports;
-/******/ 			var currentDeps;
-/******/ 			var outerResolve;
-/******/ 			var reject;
-/******/ 			var promise = new Promise((resolve, rej) => {
-/******/ 				reject = rej;
-/******/ 				outerResolve = resolve;
-/******/ 			});
-/******/ 			promise[webpackExports] = exports;
-/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 			module.exports = promise;
-/******/ 			body((deps) => {
-/******/ 				currentDeps = wrapDeps(deps);
-/******/ 				var fn;
-/******/ 				var getResult = () => (currentDeps.map((d) => {
-/******/ 					if(d[webpackError]) throw d[webpackError];
-/******/ 					return d[webpackExports];
-/******/ 				}))
-/******/ 				var promise = new Promise((resolve) => {
-/******/ 					fn = () => (resolve(getResult));
-/******/ 					fn.r = 0;
-/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 				});
-/******/ 				return fn.r ? promise : getResult();
-/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 			queue && queue.d < 0 && (queue.d = 0);
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -4473,6 +4440,21 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/harmony module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.hmd = (module) => {
+/******/ 			module = Object.create(module);
+/******/ 			if (!module.children) module.children = [];
+/******/ 			Object.defineProperty(module, 'exports', {
+/******/ 				enumerable: true,
+/******/ 				set: () => {
+/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
+/******/ 				}
+/******/ 			});
+/******/ 			return module;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -4493,7 +4475,7 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
 /******/ 	
 /******/ })()

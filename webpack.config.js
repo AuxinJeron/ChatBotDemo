@@ -9,10 +9,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     library: {
-      name: 'myLib',
+      name: 'AWS',
       type: 'umd',
     },
-    globalObject: 'this',
   },
    // Enable WebPack to use the 'path' package.
    resolve:{

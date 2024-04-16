@@ -9,9 +9,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     library: {
-      name: 'EmmaChatBot',
-      type: 'commonjs',
+      name: 'myLib',
+      type: 'umd',
     },
+    globalObject: 'this',
   },
    // Enable WebPack to use the 'path' package.
    resolve:{

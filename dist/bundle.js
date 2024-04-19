@@ -26,7 +26,7 @@ return /******/ (() => { // webpackBootstrap
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   BedrockRuntimeClient: () => (/* reexport safe */ _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__.BedrockRuntimeClient),\n/* harmony export */   InvokeModelCommand: () => (/* reexport safe */ _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_1__.InvokeModelCommand)\n/* harmony export */ });\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/BedrockRuntimeClient.js\");\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/InvokeModelCommand.js\");\n\n\n\n\n//# sourceURL=webpack://AWS/./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   BedrockRuntimeClient: () => (/* reexport safe */ _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__.BedrockRuntimeClient),\n/* harmony export */   InvokeModelCommand: () => (/* reexport safe */ _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_1__.InvokeModelCommand),\n/* harmony export */   fromCognitoIdentityPool: () => (/* reexport safe */ _aws_sdk_credential_providers__WEBPACK_IMPORTED_MODULE_2__.fromCognitoIdentityPool)\n/* harmony export */ });\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/BedrockRuntimeClient.js\");\n/* harmony import */ var _aws_sdk_client_bedrock_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aws-sdk/client-bedrock-runtime */ \"./node_modules/@aws-sdk/client-bedrock-runtime/dist-es/commands/InvokeModelCommand.js\");\n/* harmony import */ var _aws_sdk_credential_providers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @aws-sdk/credential-providers */ \"./node_modules/@aws-sdk/credential-providers/dist-es/fromCognitoIdentityPool.js\");\n\n\n\n\n\n//# sourceURL=webpack://AWS/./index.js?");
 
 /***/ }),
 
@@ -588,6 +588,83 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   loadRestJsonErrorCode: () => (/* binding */ loadRestJsonErrorCode),\n/* harmony export */   parseJsonBody: () => (/* binding */ parseJsonBody),\n/* harmony export */   parseJsonErrorBody: () => (/* binding */ parseJsonErrorBody)\n/* harmony export */ });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common */ \"./node_modules/@aws-sdk/core/dist-es/protocols/common.js\");\n\nconst parseJsonBody = (streamBody, context) => (0,_common__WEBPACK_IMPORTED_MODULE_0__.collectBodyString)(streamBody, context).then((encoded) => {\n    if (encoded.length) {\n        try {\n            return JSON.parse(encoded);\n        }\n        catch (e) {\n            if (e?.name === \"SyntaxError\") {\n                Object.defineProperty(e, \"$responseBodyText\", {\n                    value: encoded,\n                });\n            }\n            throw e;\n        }\n    }\n    return {};\n});\nconst parseJsonErrorBody = async (errorBody, context) => {\n    const value = await parseJsonBody(errorBody, context);\n    value.message = value.message ?? value.Message;\n    return value;\n};\nconst loadRestJsonErrorCode = (output, data) => {\n    const findKey = (object, key) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());\n    const sanitizeErrorCode = (rawValue) => {\n        let cleanValue = rawValue;\n        if (typeof cleanValue === \"number\") {\n            cleanValue = cleanValue.toString();\n        }\n        if (cleanValue.indexOf(\",\") >= 0) {\n            cleanValue = cleanValue.split(\",\")[0];\n        }\n        if (cleanValue.indexOf(\":\") >= 0) {\n            cleanValue = cleanValue.split(\":\")[0];\n        }\n        if (cleanValue.indexOf(\"#\") >= 0) {\n            cleanValue = cleanValue.split(\"#\")[1];\n        }\n        return cleanValue;\n    };\n    const headerKey = findKey(output.headers, \"x-amzn-errortype\");\n    if (headerKey !== undefined) {\n        return sanitizeErrorCode(output.headers[headerKey]);\n    }\n    if (data.code !== undefined) {\n        return sanitizeErrorCode(data.code);\n    }\n    if (data[\"__type\"] !== undefined) {\n        return sanitizeErrorCode(data[\"__type\"]);\n    }\n};\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/core/dist-es/protocols/json/parseJsonBody.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/InMemoryStorage.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/InMemoryStorage.js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   InMemoryStorage: () => (/* binding */ InMemoryStorage)\n/* harmony export */ });\nclass InMemoryStorage {\n    constructor(store = {}) {\n        this.store = store;\n    }\n    getItem(key) {\n        if (key in this.store) {\n            return this.store[key];\n        }\n        return null;\n    }\n    removeItem(key) {\n        delete this.store[key];\n    }\n    setItem(key, value) {\n        this.store[key] = value;\n    }\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/InMemoryStorage.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/IndexedDbStorage.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/IndexedDbStorage.js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   IndexedDbStorage: () => (/* binding */ IndexedDbStorage)\n/* harmony export */ });\nconst STORE_NAME = \"IdentityIds\";\nclass IndexedDbStorage {\n    constructor(dbName = \"aws:cognito-identity-ids\") {\n        this.dbName = dbName;\n    }\n    getItem(key) {\n        return this.withObjectStore(\"readonly\", (store) => {\n            const req = store.get(key);\n            return new Promise((resolve) => {\n                req.onerror = () => resolve(null);\n                req.onsuccess = () => resolve(req.result ? req.result.value : null);\n            });\n        }).catch(() => null);\n    }\n    removeItem(key) {\n        return this.withObjectStore(\"readwrite\", (store) => {\n            const req = store.delete(key);\n            return new Promise((resolve, reject) => {\n                req.onerror = () => reject(req.error);\n                req.onsuccess = () => resolve();\n            });\n        });\n    }\n    setItem(id, value) {\n        return this.withObjectStore(\"readwrite\", (store) => {\n            const req = store.put({ id, value });\n            return new Promise((resolve, reject) => {\n                req.onerror = () => reject(req.error);\n                req.onsuccess = () => resolve();\n            });\n        });\n    }\n    getDb() {\n        const openDbRequest = self.indexedDB.open(this.dbName, 1);\n        return new Promise((resolve, reject) => {\n            openDbRequest.onsuccess = () => {\n                resolve(openDbRequest.result);\n            };\n            openDbRequest.onerror = () => {\n                reject(openDbRequest.error);\n            };\n            openDbRequest.onblocked = () => {\n                reject(new Error(\"Unable to access DB\"));\n            };\n            openDbRequest.onupgradeneeded = () => {\n                const db = openDbRequest.result;\n                db.onerror = () => {\n                    reject(new Error(\"Failed to create object store\"));\n                };\n                db.createObjectStore(STORE_NAME, { keyPath: \"id\" });\n            };\n        });\n    }\n    withObjectStore(mode, action) {\n        return this.getDb().then((db) => {\n            const tx = db.transaction(STORE_NAME, mode);\n            tx.oncomplete = () => db.close();\n            return new Promise((resolve, reject) => {\n                tx.onerror = () => reject(tx.error);\n                resolve(action(tx.objectStore(STORE_NAME)));\n            }).catch((err) => {\n                db.close();\n                throw err;\n            });\n        });\n    }\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/IndexedDbStorage.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentity.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentity.js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fromCognitoIdentity: () => (/* binding */ fromCognitoIdentity)\n/* harmony export */ });\n/* harmony import */ var _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @smithy/property-provider */ \"./node_modules/@smithy/property-provider/dist-es/index.js\");\n/* harmony import */ var _resolveLogins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resolveLogins */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js\");\n\n\nfunction fromCognitoIdentity(parameters) {\n    return async () => {\n        parameters.logger?.debug(\"@aws-sdk/credential-provider-cognito-identity\", \"fromCognitoIdentity\");\n        const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await __webpack_require__.e(/*! import() */ \"vendors-node_modules_aws-sdk_credential-provider-cognito-identity_dist-es_loadCognitoIdentity_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./loadCognitoIdentity */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/loadCognitoIdentity.js\"));\n        const { Credentials: { AccessKeyId = throwOnMissingAccessKeyId(), Expiration, SecretKey = throwOnMissingSecretKey(), SessionToken, } = throwOnMissingCredentials(), } = await (parameters.client ??\n            new CognitoIdentityClient(Object.assign({}, parameters.clientConfig ?? {}, {\n                region: parameters.clientConfig?.region ?? parameters.parentClientConfig?.region,\n            }))).send(new GetCredentialsForIdentityCommand({\n            CustomRoleArn: parameters.customRoleArn,\n            IdentityId: parameters.identityId,\n            Logins: parameters.logins ? await (0,_resolveLogins__WEBPACK_IMPORTED_MODULE_1__.resolveLogins)(parameters.logins) : undefined,\n        }));\n        return {\n            identityId: parameters.identityId,\n            accessKeyId: AccessKeyId,\n            secretAccessKey: SecretKey,\n            sessionToken: SessionToken,\n            expiration: Expiration,\n        };\n    };\n}\nfunction throwOnMissingAccessKeyId() {\n    throw new _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__.CredentialsProviderError(\"Response from Amazon Cognito contained no access key ID\");\n}\nfunction throwOnMissingCredentials() {\n    throw new _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__.CredentialsProviderError(\"Response from Amazon Cognito contained no credentials\");\n}\nfunction throwOnMissingSecretKey() {\n    throw new _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__.CredentialsProviderError(\"Response from Amazon Cognito contained no secret key\");\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentity.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentityPool.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentityPool.js ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fromCognitoIdentityPool: () => (/* binding */ fromCognitoIdentityPool)\n/* harmony export */ });\n/* harmony import */ var _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @smithy/property-provider */ \"./node_modules/@smithy/property-provider/dist-es/index.js\");\n/* harmony import */ var _fromCognitoIdentity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fromCognitoIdentity */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentity.js\");\n/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./localStorage */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/localStorage.js\");\n/* harmony import */ var _resolveLogins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resolveLogins */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js\");\n\n\n\n\nfunction fromCognitoIdentityPool({ accountId, cache = (0,_localStorage__WEBPACK_IMPORTED_MODULE_1__.localStorage)(), client, clientConfig, customRoleArn, identityPoolId, logins, userIdentifier = !logins || Object.keys(logins).length === 0 ? \"ANONYMOUS\" : undefined, logger, parentClientConfig, }) {\n    logger?.debug(\"@aws-sdk/credential-provider-cognito-identity\", \"fromCognitoIdentity\");\n    const cacheKey = userIdentifier\n        ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`\n        : undefined;\n    let provider = async () => {\n        const { GetIdCommand, CognitoIdentityClient } = await __webpack_require__.e(/*! import() */ \"vendors-node_modules_aws-sdk_credential-provider-cognito-identity_dist-es_loadCognitoIdentity_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./loadCognitoIdentity */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/loadCognitoIdentity.js\"));\n        const _client = client ??\n            new CognitoIdentityClient(Object.assign({}, clientConfig ?? {}, { region: clientConfig?.region ?? parentClientConfig?.region }));\n        let identityId = (cacheKey && (await cache.getItem(cacheKey)));\n        if (!identityId) {\n            const { IdentityId = throwOnMissingId() } = await _client.send(new GetIdCommand({\n                AccountId: accountId,\n                IdentityPoolId: identityPoolId,\n                Logins: logins ? await (0,_resolveLogins__WEBPACK_IMPORTED_MODULE_2__.resolveLogins)(logins) : undefined,\n            }));\n            identityId = IdentityId;\n            if (cacheKey) {\n                Promise.resolve(cache.setItem(cacheKey, identityId)).catch(() => { });\n            }\n        }\n        provider = (0,_fromCognitoIdentity__WEBPACK_IMPORTED_MODULE_3__.fromCognitoIdentity)({\n            client: _client,\n            customRoleArn,\n            logins,\n            identityId,\n        });\n        return provider();\n    };\n    return () => provider().catch(async (err) => {\n        if (cacheKey) {\n            Promise.resolve(cache.removeItem(cacheKey)).catch(() => { });\n        }\n        throw err;\n    });\n}\nfunction throwOnMissingId() {\n    throw new _smithy_property_provider__WEBPACK_IMPORTED_MODULE_0__.CredentialsProviderError(\"Response from Amazon Cognito contained no identity ID\");\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentityPool.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/localStorage.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/localStorage.js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   localStorage: () => (/* binding */ localStorage)\n/* harmony export */ });\n/* harmony import */ var _IndexedDbStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexedDbStorage */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/IndexedDbStorage.js\");\n/* harmony import */ var _InMemoryStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InMemoryStorage */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/InMemoryStorage.js\");\n\n\nconst inMemoryStorage = new _InMemoryStorage__WEBPACK_IMPORTED_MODULE_0__.InMemoryStorage();\nfunction localStorage() {\n    if (typeof self === \"object\" && self.indexedDB) {\n        return new _IndexedDbStorage__WEBPACK_IMPORTED_MODULE_1__.IndexedDbStorage();\n    }\n    if (typeof window === \"object\" && window.localStorage) {\n        return window.localStorage;\n    }\n    return inMemoryStorage;\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/localStorage.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   resolveLogins: () => (/* binding */ resolveLogins)\n/* harmony export */ });\nfunction resolveLogins(logins) {\n    return Promise.all(Object.keys(logins).reduce((arr, name) => {\n        const tokenOrProvider = logins[name];\n        if (typeof tokenOrProvider === \"string\") {\n            arr.push([name, tokenOrProvider]);\n        }\n        else {\n            arr.push(tokenOrProvider().then((token) => [name, token]));\n        }\n        return arr;\n    }, [])).then((resolvedPairs) => resolvedPairs.reduce((logins, [key, value]) => {\n        logins[key] = value;\n        return logins;\n    }, {}));\n}\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@aws-sdk/credential-providers/dist-es/fromCognitoIdentityPool.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@aws-sdk/credential-providers/dist-es/fromCognitoIdentityPool.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fromCognitoIdentityPool: () => (/* binding */ fromCognitoIdentityPool)\n/* harmony export */ });\n/* harmony import */ var _aws_sdk_credential_provider_cognito_identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @aws-sdk/credential-provider-cognito-identity */ \"./node_modules/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentityPool.js\");\n\nconst fromCognitoIdentityPool = (options) => (0,_aws_sdk_credential_provider_cognito_identity__WEBPACK_IMPORTED_MODULE_0__.fromCognitoIdentityPool)({\n    ...options,\n});\n\n\n//# sourceURL=webpack://AWS/./node_modules/@aws-sdk/credential-providers/dist-es/fromCognitoIdentityPool.js?");
 
 /***/ }),
 
@@ -4367,6 +4444,9 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -4392,9 +4472,89 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".bundle.js";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "AWS:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -4406,6 +4566,119 @@ eval("module.exports = /*#__PURE__*/JSON.parse('{\"partitions\":[{\"id\":\"aws\"
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 		
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkAWS"] = self["webpackChunkAWS"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
 /************************************************************************/

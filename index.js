@@ -1,6 +1,6 @@
 import {BedrockRuntimeClient, InvokeModelCommand} from "@aws-sdk/client-bedrock-runtime";
 import {fromCognitoIdentityPool} from "@aws-sdk/credential-providers";
-import { CognitoIdentityProviderClient, InitiateAuthCommand } from '@aws-sdk/client-cognito-identity-provider';
+import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand, InitiateAuthCommand } from '@aws-sdk/client-cognito-identity-provider';
 
 export { 
     BedrockRuntimeClient, 
@@ -8,4 +8,5 @@ export {
     fromCognitoIdentityPool,
     CognitoIdentityProviderClient,
     InitiateAuthCommand,
+    RespondToAuthChallengeCommand,
 };

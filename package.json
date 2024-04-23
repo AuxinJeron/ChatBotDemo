@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.554.0",
     "@aws-sdk/client-cognito-identity-provider": "^3.556.0",
+    "@aws-sdk/client-ec2": "^3.557.0",
     "@aws-sdk/credential-providers": "^3.556.0",
     "path-browserify": "^1.0.1"
   },

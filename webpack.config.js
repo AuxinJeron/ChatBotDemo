@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     library: {
-      name: 'AWS',
+      name: 'Emma',
       type: 'umd',
     },
   },

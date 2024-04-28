@@ -2,6 +2,7 @@ import {BedrockRuntimeClient, InvokeModelCommand} from "@aws-sdk/client-bedrock-
 import {fromCognitoIdentityPool} from "@aws-sdk/credential-providers";
 import { CognitoIdentityProviderClient, RespondToAuthChallengeCommand, InitiateAuthCommand } from '@aws-sdk/client-cognito-identity-provider';
 import { EC2Client, DescribeInstancesCommand } from "@aws-sdk/client-ec2"; 
+import { OpenAI } from "openai"
 
 
 export { 
@@ -12,5 +13,6 @@ export {
     InitiateAuthCommand,
     RespondToAuthChallengeCommand,
     EC2Client,
-    DescribeInstancesCommand
-};
+    DescribeInstancesCommand,
+    OpenAI,
+}; 
